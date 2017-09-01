@@ -16,6 +16,11 @@ body {
     flex-wrap: wrap;
 }
 
+#navigation-top > * {
+    display: flex;
+    justify-content: center;
+}
+
 #logo {
 	flex: 1 1 70px;
 }
@@ -60,22 +65,22 @@ body {
         height: 60px;
     }
 
-    .search-btn {
+    #navigation-top .search-btn {
        display: none;
     }
 
     .search-container, #navigation-top.open .search-container{
-        flex: 1 1 calc((100% - 70px) * 0.8);
+        flex: 1 1 calc((100% - 70px) * 0.6);
         display: block;
         order: initial;
     }
 
     #navigation-top .home-btn-wrapper {
-        flex: 1 1 calc((100% - 70px) * 0.1);
+        flex: 1 1 calc((100% - 70px) * 0.2);
     }
 
     #navigation-top .profile-btn-wrapper {
-        flex: 1 1 calc((100% - 70px) * 0.1);
+        flex: 1 1 calc((100% - 70px) * 0.2);
     }
 }
 
