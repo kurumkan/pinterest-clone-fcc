@@ -1,6 +1,7 @@
 body {
     width: 100%;
     margin: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -174,6 +175,11 @@ a.btn {
     background-color: #eee;
 }
 
+.grid-item:hover .btn {
+    display: block;
+}
+
+
 .grid-item img {
     border-radius: 10px;
     transform: translate(15px, 10px);
@@ -189,4 +195,121 @@ a.btn {
     display: block;
     font-weight: 700;
     margin-top: 3px;
+    text-decoration: none;
+    color: #333;
 }
+
+.grid-item .btn {
+    position: absolute;
+    top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+}
+
+.grid-item .share-btn {
+    left: 25px;
+    background-color: #C0C0C0;
+    padding: 13px;
+}
+
+.grid-item .share-btn:hover {
+    background-color: #949292;
+}
+
+.grid-item .save-btn {
+    right: 25px;
+    color: #fff;
+    background-color: #9B0012;
+}
+
+.grid-item .save-btn:hover {
+    right: 25px;
+    background-color: #73000D;
+}
+
+span.tooltip {
+    display: none;
+    position: absolute;
+    width: 260px;
+    height: 200px;
+
+    z-index: 1000;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 0px;
+}
+
+span.tooltip:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+}
+
+span.tooltip.open{
+    display: inline-block;
+}
+
+span.tooltip.south {
+    top: 57px;
+    left: 0px;
+}
+span.tooltip.south:after {
+    border-color: transparent transparent #FFFFFF transparent;
+    top: -19px;
+    left: 8px;
+}
+
+span.tooltip.east {
+    left: 50px;
+}
+span.tooltip.east:after {
+    border-color: transparent #FFFFFF transparent transparent;
+    left: -20px;
+}
+
+span.tooltip.west {
+    left: -300px;
+}
+span.tooltip.west:after {
+    border-color: transparent transparent transparent #FFFFFF;
+    left: 280px;
+}
+
+span.tooltip.arrow-top {
+    top: 0px;
+}
+
+span.tooltip.arrow-top:after {
+    top: 10px;
+}
+
+span.tooltip.arrow-bottom {
+    top: -180px;
+}
+
+span.tooltip.arrow-bottom:after {
+    bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
