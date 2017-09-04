@@ -30,13 +30,19 @@ for(var i = 0; i < shareBtns.length; i++) {
             || document.documentElement.clientHeight
             || document.body.clientHeight;
 
+        var x = e.clientX;
+        var y = e.clientY;
+
         // check screen width
         if(width < 525 ) {
-            // small width - show the tooltip on bottom of the button
-            tooltip.classList.add('south')
+            // small width
+            if(y < height/2) {
+                tooltip.classList.add('south');
+            } else {
+                tooltip.classList.add('north');
+            }
         } else {
-            var x = e.clientX;
-            var y = e.clientY;
+            // wider screens
             if(x < width/2) {
                 tooltip.classList.add('east');
             } else {
@@ -49,12 +55,10 @@ for(var i = 0; i < shareBtns.length; i++) {
                 tooltip.classList.add('arrow-bottom');
             }
         }
-
-
     };
 
     shareBtns[i].onmouseout = function () {
         var tooltip = this.querySelector('.tooltip');
-        //tooltip.classList.remove('open');
+        tooltip.className="tooltip";
     };
 }

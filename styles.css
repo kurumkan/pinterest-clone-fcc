@@ -65,7 +65,8 @@ a.btn {
 }
 
 #navigation-top.open {
-    height: 100px;
+    height: 110px;
+    padding: auto 5px 5px 5px;
 }
 
 #navigation-top .search-wrapper {
@@ -148,6 +149,7 @@ a.btn {
 
 .search-container input{
     padding-left: 40px;
+    padding-right: 15px;
 	width: 100%;
     background-color: #eee;
     color: #555;
@@ -259,6 +261,16 @@ span.tooltip.open{
     display: inline-block;
 }
 
+span.tooltip.north {
+    top: -235px;
+    left: 0px;
+}
+span.tooltip.north:after {
+    border-color: #FFFFFF transparent transparent transparent;
+    top: 220px;
+    left: 8px;
+}
+
 span.tooltip.south {
     top: 57px;
     left: 0px;
@@ -300,16 +312,3 @@ span.tooltip.arrow-bottom {
 span.tooltip.arrow-bottom:after {
     bottom: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
