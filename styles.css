@@ -160,4 +160,33 @@ a.btn {
     font-size: 16px;
 }
 
+.grid {
+    margin: 0 auto;
+}
 
+.grid-sizer, .grid-item {
+    width: 260px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.grid-item:hover {
+    background-color: #eee;
+}
+
+.grid-item img {
+    border-radius: 10px;
+    transform: translate(15px, 10px);
+    display: block;
+    width: 230px;
+}
+
+.grid-item .img-description {
+    transform: translate(15px, -2px);
+}
+
+.img-description .author {
+    display: block;
+    font-weight: 700;
+    margin-top: 3px;
+}
