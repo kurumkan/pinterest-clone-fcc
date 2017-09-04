@@ -20,12 +20,18 @@ body {
 
 .btn {
     display: block;
-    padding: 7px;
+    padding: 10px;
     border-radius: 999px;
 }
 
 .btn:hover {
     background-color: #eee;
+}
+
+.icon.rounded {
+    border-radius: 50%;
+    padding: 4px 7px;
+    background-color: #ccc;
 }
 
 a.btn {
@@ -61,13 +67,13 @@ a.btn {
     height: 100px;
 }
 
-#navigation-top .search-container {
+#navigation-top .search-wrapper {
     flex: 1 1 calc((100% - 70px) * 0.33);
     display: none;
     padding: 0 5px;
 }
 
-#navigation-top.open .search-container{
+#navigation-top.open .search-wrapper{
     order: 5;
     display: block;
 }
@@ -86,6 +92,11 @@ a.btn {
     flex: 1 1 calc((100% - 70px) * 0.33);
 }
 
+#navigation-top .profile-btn-wrapper .username {
+    display: none;
+}
+
+
 @media (min-width: 768px) {
     #navigation-top{
         flex-wrap: nowrap;
@@ -99,7 +110,7 @@ a.btn {
        display: none;
     }
 
-    #navigation-top .search-container,  #navigation-top.open .search-container{
+    #navigation-top .search-wrapper,  #navigation-top.open .search-wrapper{
         flex: 1 1 calc((100% - 70px) * 0.66);
         display: block;
         order: initial;
@@ -109,21 +120,44 @@ a.btn {
         flex: 1 1 calc((100% - 70px) * 0.2);
     }
 
-    #navigation-top .profile-btn-wrapper {
-        flex: 1 1 calc((100% - 70px) * 0.2);
+    #navigation-top .profile-btn-wrapper .username {
+        display: inline;
+        padding-left: 5px;
     }
+
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-container .icon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.search-container .icon.left {
+    left: 0;
+}
+
+.search-container .icon.right {
+    right: 0;
 }
 
 .search-container input{
+    padding-left: 40px;
 	width: 100%;
     background-color: #eee;
     color: #555;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     border: 0;
     box-shadow: none;
-    height: 30px;
+    height: 42px;
+    outline: none;
+    font-size: 16px;
 }
 
 
