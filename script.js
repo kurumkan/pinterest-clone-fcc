@@ -19,6 +19,9 @@ var shareBtns = document.getElementsByClassName('share-btn');
 
 for(var i = 0; i < shareBtns.length; i++) {
     shareBtns[i].onclick = function (e) {
+        closeTooltips();
+        e.stopPropagation();
+        this.parentElement.classList.add('focused');
         var tooltip = this.querySelector('.tooltip');
         tooltip.classList.add('open');
 
@@ -56,9 +59,24 @@ for(var i = 0; i < shareBtns.length; i++) {
             }
         }
     };
+}
 
-    shareBtns[i].onmouseout = function () {
-        var tooltip = this.querySelector('.tooltip');
-        tooltip.className="tooltip";
-    };
+window.onclick = function(e) {
+    closeTooltips();
+};
+
+function closeTooltips() {
+    var tooltips = document.querySelectorAll('.tooltip.open');
+    if(tooltips.length) {
+        for(var i = 0; i < tooltips.length; i++) {
+            tooltips[i].className = 'tooltip';
+        }
+    }
+
+    var gridItems = document.querySelectorAll('.grid-item.focused');
+    if(gridItems.length) {
+        for(var i = 0; i < gridItems.length; i++) {
+            gridItems[i].className = 'grid-item';
+        }
+    }
 }

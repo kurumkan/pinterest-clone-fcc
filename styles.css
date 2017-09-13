@@ -1,3 +1,8 @@
+:root {
+    --tooltip-height: 90px;
+    --tooltip-width: 190px;
+}
+
 body {
     width: 100%;
     margin: 0;
@@ -177,10 +182,10 @@ a.btn {
     background-color: #eee;
 }
 
-.grid-item:hover .btn {
+.grid-item.focused .btn,
+.grid-item:hover .btn{
     display: block;
 }
-
 
 .grid-item img {
     border-radius: 10px;
@@ -234,17 +239,17 @@ a.btn {
 span.tooltip {
     display: none;
     position: absolute;
-    width: 260px;
-    height: 200px;
+    width: var(--tooltip-width);
+    height: var(--tooltip-height);
 
     z-index: 1000;
     padding: 10px;
     font-size: 14px;
-    text-align: center;
+    color: #555;
+    text-align: left;
     background: #fff;
     border: 1px solid #eee;
     border-radius: 10px;
-    text-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px;
     box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 0px;
 }
 
@@ -261,23 +266,31 @@ span.tooltip.open{
     display: inline-block;
 }
 
+
+
+
+
+
+
+
 span.tooltip.north {
-    top: -235px;
+    transform: translateY(calc(-100% - 40px));
     left: 0px;
 }
 span.tooltip.north:after {
     border-color: #FFFFFF transparent transparent transparent;
-    top: 220px;
+    top: calc(var(--tooltip-height) + 20px);
     left: 8px;
 }
 
 span.tooltip.south {
-    top: 57px;
+    top: 50px;
     left: 0px;
 }
+
 span.tooltip.south:after {
     border-color: transparent transparent #FFFFFF transparent;
-    top: -19px;
+    top: -20px;
     left: 8px;
 }
 
@@ -290,12 +303,19 @@ span.tooltip.east:after {
 }
 
 span.tooltip.west {
-    left: -300px;
+    transform: translateX(calc(-100% - 25px))
 }
 span.tooltip.west:after {
     border-color: transparent transparent transparent #FFFFFF;
-    left: 280px;
+    left: calc(var(--tooltip-width) + 20px);
 }
+
+
+
+
+
+
+
 
 span.tooltip.arrow-top {
     top: 0px;
@@ -306,9 +326,43 @@ span.tooltip.arrow-top:after {
 }
 
 span.tooltip.arrow-bottom {
-    top: -180px;
+    top: -70px;
+    /*transform: translateY(calc(-100% + 20px));*/
 }
 
 span.tooltip.arrow-bottom:after {
     bottom: 10px;
+}
+
+.tooltip .title {
+    font-size: 18px;
+}
+
+.tooltip .button-group {
+    margin-top: 10px;
+}
+
+.social-btn{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 50px;
+    margin: 5px;
+}
+
+.social-btn.fa-facebook {
+    background-color: #3c5d96;
+}
+
+.social-btn.fa-twitter {
+    background-color: #4ac2fb;
+}
+
+.social-btn.fa-link {
+    background-color: #efefef;
+    color: #ababab;
 }
