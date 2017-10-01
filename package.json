@@ -4,7 +4,8 @@
   "description": "pinterest clone (fcc challenge)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "serve": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
