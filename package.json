@@ -1,0 +1,34 @@
+{
+  "name": "pinterest-clone",
+  "version": "1.0.0",
+  "description": "pinterest clone (fcc challenge)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurumkan/pinterest-clone-fcc.git"
+  },
+  "keywords": [
+    "fcc",
+    "webpack",
+    "react",
+    "node.js"
+  ],
+  "author": "kurumkan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kurumkan/pinterest-clone-fcc/issues"
+  },
+  "homepage": "https://github.com/kurumkan/pinterest-clone-fcc#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
