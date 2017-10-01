@@ -1,1 +1,3 @@
-const t = () => console.log(1);
+const sum = (a, b) => a + b;
+
+export default sum;
