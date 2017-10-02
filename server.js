@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'production') {
   app.use(express.static('dist'));
 
   // SPA specific code!!!
-  // any get requests will be served with index.html files
+  // any get requests will be served with index.template.ejs files
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });

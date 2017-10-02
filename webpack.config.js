@@ -78,11 +78,12 @@ const webpackConfig = {
     }),
 
     new HtmlWebpackPlugin({ // generate html file for us from template + add scripts to that
-      template: 'src/index.html',
+      template: 'src/index.template.ejs',
       title: 'Pinterest Clone'
     })
   ],
 
+  // WebpackDevServer will run on localhost:3000 and api calls will go to http://localhost:5000/api/
   devServer: {
     historyApiFallback: true,
     hot: true,

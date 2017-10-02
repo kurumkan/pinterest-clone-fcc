@@ -13,3 +13,15 @@ body {
 .btn:hover {
     background-color: #eee;
 }
+
+.icon.rounded {
+    border-radius: 50%;
+    padding: 4px 7px;
+    background-color: #ccc;
+}
+
+a.btn {
+    text-decoration: none;
+    color: #555;
+}
+
