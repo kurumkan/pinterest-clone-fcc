@@ -51,6 +51,13 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    extensions: ['.js'], // what file extensions to expect
+    modules: [ // where to look up the modules(packages)
+      path.resolve(__dirname, 'src'), 'node_modules',
+    ],
+  },
+
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: [
