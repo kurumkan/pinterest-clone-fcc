@@ -1,5 +1,7 @@
-import React from 'react';
-import Header from './Header';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import Header from 'components/Header';
 
 const Home = ({ children }) => {
   return (

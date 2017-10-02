@@ -7,6 +7,8 @@ const VENDOR_LIBS = [
   'react'
 ];
 
+const isDev = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   entry: {
     bundle: './src/index.js',
@@ -14,7 +16,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js' // chunkhash - a unique string generated based on the file content
+    filename: `[name]${isDev ? '' : '[chunkhash:8]'}.js` // chunkhash - a unique string generated based on the file content
+    // chunk hash should not be used for development - can cause memory leak
   },
 
   module: {
@@ -55,7 +58,7 @@ module.exports = {
     extensions: ['.js'], // what file extensions to expect
     modules: [ // where to look up the modules(packages)
       path.resolve(__dirname, 'src'), 'node_modules',
-    ],
+    ]
   },
 
   plugins: [
@@ -73,6 +76,24 @@ module.exports = {
       // on the left setting NODE_ENV - global variable(window-scope)
       // on the right NODE_ENV - can be set at compile time
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new webpack.HotModuleReplacementPlugin({
+      multiStep: true
     })
-  ]
+  ],
+
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    host: 'localhost',
+    port: 3000,
+    proxy: {
+      '^/api/*': {
+        target: 'http://localhost:5000/api/',
+        secure: false
+      }
+    },
+    contentBase: './'
+  }
 };
