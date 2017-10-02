@@ -3,7 +3,7 @@ var navigationTop = document.getElementById('navigation-top');
 
 searchBtn.onclick = function() {
     navigationTop.classList.toggle('open');
-}
+};
 
 var elem = document.querySelector('.grid');
 var msnry = new Masonry( elem, {

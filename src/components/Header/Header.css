@@ -35,13 +35,13 @@
     padding: auto 5px 5px 5px;
 }
 
-.Header .search-wrapper {
+.Header .search-form {
     flex: 1 1 calc((100% - 70px) * 0.33);
     display: none;
     padding: 0 5px;
 }
 
-.Header.open .search-wrapper{
+.Header.open .search-form{
     order: 5;
     display: block;
 }
@@ -84,7 +84,7 @@
         display: none;
     }
 
-    .Header .search-wrapper,  .Header.open .search-wrapper{
+    .Header .search-form,  .Header.open .search-form{
         flex: 1 1 calc((100% - 70px) * 0.66);
         display: block;
         order: initial;
