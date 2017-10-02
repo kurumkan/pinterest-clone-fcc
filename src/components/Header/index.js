@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import FontAwesome from 'react-fontawesome';
+
 import './Header.css';
 
 class Header extends Component {
@@ -15,12 +17,12 @@ class Header extends Component {
         </div>
         <div className="search-btn-wrapper">
           <span className="btn search-btn">
-              <i className="fa fa-search" aria-hidden="true"></i>
+            <FontAwesome name="search" />
           </span>
         </div>
         <div className="search-wrapper">
           <div className="search-container">
-            <i className="icon left fa fa-search" aria-hidden="true"></i>
+            <FontAwesome name="search" className="left icon"/>
             <input type="search" name="top-search" placeholder="Search"/>
           </div>
         </div>
@@ -31,7 +33,7 @@ class Header extends Component {
         </div>
         <div className="profile-btn-wrapper">
           <a href="#" className="btn profile-btn">
-            <i className="icon rounded fa fa-user" aria-hidden="true"></i>
+            <FontAwesome name="user" className="icon rounded" />
             <span className="username">ARTURARTUR</span>
           </a>
         </div>
