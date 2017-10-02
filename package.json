@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src/ --config=.eslintrc",
-    "build": "webpack",
-    "serve": "webpack-dev-server"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && webpack",
+    "serve": "webpack-dev-server",
+    "prod": "NODE_ENV=production npm run build -p"
   },
   "pre-commit": "lint",
   "repository": {
