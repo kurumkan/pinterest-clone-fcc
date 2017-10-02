@@ -1,7 +1,7 @@
 import Main from 'components/Main';
-import ImageGridPage from 'components/ImageGridPage';
-import ProfilePage from 'components/ProfilePage';
-import NotFoundPage from 'components/NotFoundPage';
+import ImageGridPage from 'components/ImageGridPage/index';
+import ProfilePage from 'components/ProfilePage/index';
+import NotFoundPage from 'components/NotFoundPage/index';
 
 const createRoutes = (store) => {
   const routes = [

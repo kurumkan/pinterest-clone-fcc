@@ -8,8 +8,8 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && webpack",
     "prod": "NODE_ENV=production npm run build -p",
-    "fe-server-dev": "webpack-dev-server",
-    "b-server-dev": "nodemon server.js",
+    "frontend-dev": "webpack-dev-server",
+    "backend-dev": "nodemon server.js",
     "deploy-heroku": "git push heroku master"
   },
   "pre-commit": "lint",
