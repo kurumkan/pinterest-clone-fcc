@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router';
 import FontAwesome from 'react-fontawesome';
 
 import LogoImg from 'images/logo.jpg';
@@ -41,7 +42,7 @@ class Header extends Component {
     return (
       <nav className={`Header ${this.state.isOpen && 'open'}`}>
         <div className="logo">
-          <a href="#"><img src={LogoImg} alt="Logo" /></a>
+          <Link to="/"><img src={LogoImg} alt="Logo" /></Link>
         </div>
         <div className="search-btn-wrapper">
           <span className="btn search-btn" onClick={this.toggleSearchbar}>
@@ -61,15 +62,15 @@ class Header extends Component {
           </div>
         </form>
         <div className="home-btn-wrapper">
-          <a href="#" className="btn home-btn">
+          <Link to="/" className="btn home-btn">
             Home
-          </a>
+          </Link>
         </div>
         <div className="profile-btn-wrapper">
-          <a href="#" className="btn profile-btn">
+          <Link to="#" className="btn profile-btn">
             <FontAwesome name="user" className="icon rounded" />
             <span className="username">ARTURARTUR</span>
-          </a>
+          </Link>
         </div>
       </nav>
     );
