@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import FontAwesome from 'react-fontawesome';
+
+import LogoImg from 'images/logo.jpg';
 
 import './Header.css';
 
@@ -31,7 +32,7 @@ class Header extends Component {
     const { term } = this.state;
 
     alert(term);
-    
+
     this.setState({
       term: ''
     });
@@ -40,7 +41,7 @@ class Header extends Component {
     return (
       <nav className={`Header ${this.state.isOpen && 'open'}`}>
         <div className="logo">
-          <a href="#"><img src="images/logo.jpg" alt="Logo" /></a>
+          <a href="#"><img src={LogoImg} alt="Logo" /></a>
         </div>
         <div className="search-btn-wrapper">
           <span className="btn search-btn" onClick={this.toggleSearchbar}>
