@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
-// Server routes must go here!!!
 app.get('/api/pins', (req, res) => {
   const pins = [
     {
@@ -42,7 +41,9 @@ app.get('/api/pins', (req, res) => {
       description: 'Lorem Ipsum'
     }
   ];
-  res.send({ data: pins });
+  res.json({
+    pins
+  });
 });
 
 if(process.env.NODE_ENV === 'production') {

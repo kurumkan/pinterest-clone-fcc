@@ -14,33 +14,33 @@ const initialState = {
 
 const pinReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case GET_PINS_REQUEST: {
-    //   return {
-    //     ...state,
-    //     gettingPins: true
-    //   };
-    // }
+    case GET_PINS_REQUEST: {
+      return {
+        ...state,
+        gettingPins: true
+      };
+    }
 
-    // case GET_PINS_SUCCESS: {
-    //   const pins = action.payload;
-    //   return {
-    //     ...state,
-    //     pins,
-    //     gettingPins: false
-    //   };
-    // }
-    // case GET_PINS_FAILURE: {
-    //   return {
-    //     ...state,
-    //     gettingPins: false
-    //   };
-    // }
-    // case SHOW_PIN_POPUP: {
-    //   return {
-    //     ...state,
-    //     focusedPin: action.payload
-    //   }
-    // }
+    case GET_PINS_SUCCESS: {
+      const pins = action.payload;
+      return {
+        ...state,
+        pins,
+        gettingPins: false
+      };
+    }
+    case GET_PINS_FAILURE: {
+      return {
+        ...state,
+        gettingPins: false
+      };
+    }
+    case SHOW_PIN_POPUP: {
+      return {
+        ...state,
+        focusedPin: action.payload
+      }
+    }
     case HIDE_PIN_POPUP: {
       return {
         ...state,

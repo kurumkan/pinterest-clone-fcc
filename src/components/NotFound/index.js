@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const NotFoundPage = () => <div>404</div>;
+const NotFound = () => <div>404</div>;
 
-export default NotFoundPage;
+export default NotFound;

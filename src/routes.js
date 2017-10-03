@@ -1,7 +1,7 @@
 import Main from 'components/Main';
-import ImageGridPage from 'components/ImageGridPage/index';
-import ProfilePage from 'components/ProfilePage/index';
-import NotFoundPage from 'components/NotFoundPage/index';
+import ImageGridContainer from 'containers/ImageGridContainer';
+import Profile from 'components/Profile/index';
+import NotFound from 'components/NotFound/index';
 
 const createRoutes = (store) => {
   const routes = [
@@ -16,15 +16,15 @@ const createRoutes = (store) => {
       childRoutes: [
         {
           path: 'pins',
-          component: ImageGridPage
+          component: ImageGridContainer
         },
         {
           path: 'profile',
-          component: ProfilePage
+          component: Profile
         },
         {
           path: '*',
-          component: NotFoundPage
+          component: NotFound
         }
       ]
     }

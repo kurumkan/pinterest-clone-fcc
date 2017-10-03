@@ -1,3 +1,8 @@
+:root {
+    --tooltip-height: 90px;
+    --tooltip-width: 190px;
+}
+
 .grid {
     margin: 0 auto;
 }
