@@ -3,8 +3,46 @@ const express = require('express');
 const app = express();
 
 // Server routes must go here!!!
-app.get('/api/something', (req, res) => {
-  res.send({ data: 'hello!' });
+app.get('/api/pins', (req, res) => {
+  const pins = [
+    {
+      id: '1',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '2',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '3',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '4',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '5',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '6',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    }
+  ];
+  res.send({ data: pins });
 });
 
 if(process.env.NODE_ENV === 'production') {

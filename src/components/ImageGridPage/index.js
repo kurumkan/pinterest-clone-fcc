@@ -1,16 +1,61 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ImageGridItem from 'components/ImageGridItem';
 import './ImageGridPage.css';
 
 class ImageGridPage extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      pins: [
+        {
+          id: '1',
+          img: 'src/images/300.jpeg',
+          author: 'Ethan Hein',
+          description: 'Lorem Ipsum'
+        },
+        {
+          id: '2',
+          img: 'src/images/350.jpeg',
+          author: 'Ethan Hein',
+          description: 'Lorem Ipsum'
+        },
+        {
+          id: '3',
+          img: 'src/images/300.jpeg',
+          author: 'Ethan Hein',
+          description: 'Lorem Ipsum'
+        },
+        {
+          id: '4',
+          img: 'src/images/350.jpeg',
+          author: 'Ethan Hein',
+          description: 'Lorem Ipsum'
+        },
+        {
+          id: '5',
+          img: 'src/images/300.jpeg',
+          author: 'Ethan Hein',
+          description: 'Lorem Ipsum'
+        },
+        {
+          id: '6',
+          img: 'src/images/350.jpeg',
+          author: 'Ethan Hein',
+          description: 'Lorem Ipsum'
+        }
+      ]
+    };
+
+    this.renderGrid = this.renderGrid.bind(this);
   }
 
   componentDidMount() {
     setTimeout(() => {
       // These piece of code should be rewritten
+      // with custom masonry layout solution
       const elem = document.querySelector('.grid');
       const msnry = new Masonry( elem, {
         // options
@@ -23,240 +68,23 @@ class ImageGridPage extends Component {
     }, 10);
   }
 
+  renderGrid() {
+    return this.state.pins.map(pin => (
+      <ImageGridItem
+        key={pin.id}
+        id={pin.id}
+        img={pin.img}
+        author={pin.author}
+        description={pin.description}
+      />
+    ));
+  }
+
   render() {
     return (
       <div className="grid">
         <div className="grid-sizer"></div>
-        <div className="grid-item">
-          <img src="src/images/300.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Ethan Hein</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/350.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Alexander Morozov</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/300.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Ethan Hein</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/350.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Alexander Morozov</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/300.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Ethan Hein</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/350.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Alexander Morozov</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/300.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Ethan Hein</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/350.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Alexander Morozov</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/300.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Ethan Hein</a>
-          </p>
-        </div>
-        <div className="grid-item">
-          <img src="src/images/350.jpeg" />
-          <span className="btn share-btn fa fa-share-alt">
-            <span className="tooltip">
-              <span className="title">
-                Share this Pin
-              </span>
-              <div className="button-group">
-                <span className="fa fa-facebook social-btn "></span>
-                <span className="fa fa-twitter social-btn "></span>
-                <span className="fa fa-link social-btn "></span>
-              </div>
-            </span>
-          </span>
-          <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true"></i>
-            Save
-          </span>
-          <p className="img-description">
-            Lorem Ipsum
-            <a className="author" href="#">By Alexander Morozov</a>
-          </p>
-        </div>
+        { this.renderGrid() }
       </div>
     );
   }
