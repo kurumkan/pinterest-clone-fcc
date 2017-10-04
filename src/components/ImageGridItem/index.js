@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Tooltip from 'components/Tooltip';
+
 import './ImageGridItem.css';
 
 class ImageGridItem extends Component {
@@ -73,8 +75,11 @@ class ImageGridItem extends Component {
     return (
       <div className={`grid-item ${shouldShowPopup && 'focused'}`}>
         <img src={ img } />
-          <span className="btn share-btn fa fa-share-alt" onClick={this.handleShareBtnClick}>
-            <span className={this.state.tooltipClasses}>
+          <span className="btn share-btn fa fa-share-alt" onClick={this.handleShareBtnClick} ref={(el) => { this.shareBtn = el; }}>
+            <Tooltip
+              targetElement={this.shareBtn}
+              isOpen={shouldShowPopup}
+            >
               <span className="title">
                 Share this Pin
               </span>
@@ -83,7 +88,7 @@ class ImageGridItem extends Component {
                 <span className="fa fa-twitter social-btn " />
                 <span className="fa fa-link social-btn " />
               </div>
-            </span>
+            </Tooltip>
           </span>
           <span className="btn save-btn">
             <i className="fa fa-thumb-tack" aria-hidden="true" />
