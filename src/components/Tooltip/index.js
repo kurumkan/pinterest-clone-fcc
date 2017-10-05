@@ -77,7 +77,7 @@ class Tooltip extends Component {
 }
 
 Tooltip.propTypes = {
-  targetElement: PropTypes.node.isRequired,
+  targetElement: PropTypes.object,
   isOpen: PropTypes.bool,
   width: PropTypes.number,
   height: PropTypes.number
