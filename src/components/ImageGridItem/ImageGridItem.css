@@ -1,21 +1,10 @@
-.grid-item {
-    --tooltip-height: 90px;
-    --tooltip-width: 190px;
-
-    --target-width: 42px;
-    --target-height: 39px;
-
-    --arrow-offset: 8px;
-    --arrow-height: 10px;
-}
-
 .grid-item:hover {
     background-color: #eee;
 }
 
 .grid-item.focused .btn,
 .grid-item:hover .btn{
-    display: block;
+    visibility: visible;
 }
 
 .grid-item img {
@@ -43,7 +32,7 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    display: none;
+    visibility: hidden;
 }
 
 .grid-item .share-btn {

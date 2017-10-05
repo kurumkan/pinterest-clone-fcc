@@ -9,6 +9,17 @@ class Tooltip extends Component {
     this.getClasses = this.getClasses.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const root = document.querySelector('body');
+    const targetRect = nextProps.targetElement.getBoundingClientRect();
+
+    root.style.setProperty('--tooltip-height', `${nextProps.height}px`);
+    root.style.setProperty('--tooltip-width', `${nextProps.width}px`);
+    root.style.setProperty('--target-height', `${targetRect.height}px`);
+    root.style.setProperty('--target-width', `${targetRect.width}px`);
+    root.style.setProperty('--arrow-height', `${10}px`);
+  }
+
   getClasses() {
     if(!this.props.isOpen) {
       return 'tooltip';
@@ -27,7 +38,6 @@ class Tooltip extends Component {
       || document.body.clientHeight;
 
     const targetRect = this.props.targetElement.getBoundingClientRect();
-
     const x = targetRect.x;
     const y = targetRect.y;
 
@@ -65,5 +75,18 @@ class Tooltip extends Component {
     );
   }
 }
+
+Tooltip.propTypes = {
+  targetElement: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool,
+  width: PropTypes.number,
+  height: PropTypes.number
+};
+
+Tooltip.defaultProps = {
+  isOpen: false,
+  width: 100,
+  height: 100
+};
 
 export default Tooltip;

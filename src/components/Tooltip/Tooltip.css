@@ -27,9 +27,7 @@ span.tooltip.open{
     display: inline-block;
 }
 
-
-
-
+/* Tooltip positioning */
 span.tooltip.north {
     bottom: calc(var(--target-height) + var(--arrow-height));
     left: 0px;
@@ -37,7 +35,7 @@ span.tooltip.north {
 span.tooltip.north:after {
     border-color: #FFFFFF transparent transparent transparent;
     bottom: calc(0px - var(--arrow-height) - 10px);
-    left: var(--arrow-offset);
+    left: calc(var(--target-width) / 2 - var(--arrow-height));
 }
 
 span.tooltip.south {
@@ -48,7 +46,7 @@ span.tooltip.south {
 span.tooltip.south:after {
     border-color: transparent transparent #FFFFFF transparent;
     top: calc(0px - var(--arrow-height) - 10px);
-    left: var(--arrow-offset);
+    left: calc(var(--target-width) / 2 - var(--arrow-height));
 }
 
 span.tooltip.east {
@@ -72,7 +70,7 @@ span.tooltip.arrow-top {
 }
 
 span.tooltip.arrow-top:after {
-    top:  var(--arrow-offset);
+    top: calc(var(--target-height) / 2 - var(--arrow-height));
 }
 
 span.tooltip.arrow-bottom {
@@ -80,5 +78,5 @@ span.tooltip.arrow-bottom {
 }
 
 span.tooltip.arrow-bottom:after {
-    bottom: var(--arrow-offset);
+    bottom: calc(var(--target-height) / 2 - var(--arrow-height));
 }

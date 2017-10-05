@@ -9,65 +9,11 @@ class ImageGridItem extends Component {
   constructor(props) {
     super(props);
     this.handleShareBtnClick = this.handleShareBtnClick.bind(this);
-
-    this.state = {
-      tooltipClasses: 'tooltip'
-    }
   }
 
   handleShareBtnClick(e) {
     const { showPopup, id } = this.props;
     this.props.showPopup(id);
-
-    const classes = [];
-    classes.push('tooltip');
-    classes.push('open');
-
-    var width = window.innerWidth
-      || document.documentElement.clientWidth
-      || document.body.clientWidth;
-
-    var height = window.innerHeight
-      || document.documentElement.clientHeight
-      || document.body.clientHeight;
-
-    var x = e.clientX;
-    var y = e.clientY;
-
-    // check screen width
-    if(width < 525 ) {
-      // small width
-      if(y < height/2) {
-        classes.push('south');
-      } else {
-        classes.push('north');
-      }
-    } else {
-      // wider screens
-      if(x < width/2) {
-        classes.push('east');
-      } else {
-        classes.push('west');
-      }
-
-      if(y < height/2) {
-        classes.push('arrow-top');
-      } else {
-        classes.push('arrow-bottom');
-      }
-    }
-
-    this.setState({
-      tooltipClasses: classes.join(' ')
-    });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (!this.props.shouldShowPopup) {
-      this.setState({
-        tooltipClasses: 'tooltip'
-      })
-    }
   }
 
   render() {
@@ -79,6 +25,8 @@ class ImageGridItem extends Component {
             <Tooltip
               targetElement={this.shareBtn}
               isOpen={shouldShowPopup}
+              width={190}
+              height={90}
             >
               <span className="title">
                 Share this Pin
