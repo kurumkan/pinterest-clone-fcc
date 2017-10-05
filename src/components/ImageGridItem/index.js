@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Tooltip from 'components/Tooltip';
+import GridItem from 'components/Masonry/GridItem';
 
 import './ImageGridItem.css';
 
@@ -19,7 +20,7 @@ class ImageGridItem extends Component {
   render() {
     const { description, author, img, shouldShowPopup } = this.props;
     return (
-      <div className={`grid-item ${shouldShowPopup && 'focused'}`}>
+      <GridItem className={`${shouldShowPopup && 'focused'}`}>
         <img src={ img } />
           <span className="btn share-btn fa fa-share-alt" onClick={this.handleShareBtnClick} ref={(el) => { this.shareBtn = el; }}>
             <Tooltip
@@ -46,7 +47,7 @@ class ImageGridItem extends Component {
           { description }
           <a className="author" href="#">By { author }</a>
         </p>
-      </div>
+      </GridItem>
     );
   }
 }

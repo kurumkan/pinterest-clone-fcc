@@ -39,6 +39,78 @@ app.get('/api/pins', (req, res) => {
       img: 'src/images/350.jpeg',
       author: 'Ethan Hein',
       description: 'Lorem Ipsum'
+    },
+    {
+      id: '7',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '8',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '9',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '10',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '11',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '12',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '13',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '14',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '15',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '16',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '17',
+      img: 'src/images/300.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
+      id: '18',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
     }
   ];
   res.json({

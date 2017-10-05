@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Grid from 'components/Masonry/Grid';
 
 import ImageGridItem from 'components/ImageGridItem';
 import './ImageGrid.css';
@@ -31,10 +32,13 @@ class ImageGrid extends Component {
 
   render() {
     return (
-      <div className="grid">
-        <div className="grid-sizer"></div>
+      <Grid
+        columnWidth={260}
+        fitWidth={true}
+        gutter={5}
+      >
         { this.renderGrid() }
-      </div>
+      </Grid>
     );
   }
 }
