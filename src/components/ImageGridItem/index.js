@@ -44,7 +44,7 @@ class ImageGridItem extends Component {
             Save
           </span>
         <p className="img-description">
-          { description }
+          { description } {this.props.id}
           <a className="author" href="#">By { author }</a>
         </p>
       </GridItem>

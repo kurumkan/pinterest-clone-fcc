@@ -113,8 +113,12 @@ app.get('/api/pins', (req, res) => {
       description: 'Lorem Ipsum'
     }
   ];
+
+  const limit = req.query.limit || 10;
+  const offset = req.query.offset || 0;
+
   res.json({
-    pins
+    pins: pins.slice(offset, offset + limit)
   });
 });
 

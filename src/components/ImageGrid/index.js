@@ -8,12 +8,24 @@ import './ImageGrid.css';
 class ImageGrid extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      offset: 0,
+      limit: 10
+    };
+    this.loadMore = this.loadMore.bind(this);
     this.renderGrid = this.renderGrid.bind(this);
   }
 
   componentDidMount() {
-    this.props.getPins();
+    this.loadMore();
+  }
+
+  loadMore() {
+    console.log('loadmore')
+    this.props.getPins(this.state.offset, this.state.limit);
+    this.setState({
+      offset: this.state.offset + this.state.limit
+    })
   }
 
   renderGrid() {
@@ -36,6 +48,8 @@ class ImageGrid extends Component {
         columnWidth={260}
         fitWidth={true}
         gutter={5}
+        loadMore={() => this.loadMore()}
+        scrollThreshold={50}
       >
         { this.renderGrid() }
       </Grid>

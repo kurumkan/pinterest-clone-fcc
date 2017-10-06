@@ -5,7 +5,7 @@ import './Grid.css';
 class Grid extends Component {
   constructor(props) {
     super(props);
-    this.loaderCalled = false;
+    this.shouldCall = false;
     this.renderGrid = this.renderGrid.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -58,24 +58,22 @@ class Grid extends Component {
   }
 
   handleScroll(e) {
-    const bottomLimit = 100;
     const windowHeight = window.innerHeight;
 
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
+    const scrolled = scrollTop % windowHeight;
 
-    if(scrollTop > windowHeight - document.get) {
-      console.log('call funcion')
+    if(scrolled > windowHeight - this.props.scrollThreshold) {
+      if(this.shouldCall) {
+        console.log('should load')
+        setTimeout(this.renderGrid, 100);
+        this.shouldCall = false;
+        this.props.loadMore();
+      }
+    } else {
+      this.shouldCall = true;
     }
-
-    // const gap = scrollTop % windowHeight;
-    // console.log(this.loaderCalled)
-    // if(gap > windowHeight - bottomLimit && !this.loaderCalled) {
-    //   this.loaderCalled = true;
-    //   console.log('call')
-    // } else {
-    //   this.loaderCalled = false;
-    // }
   }
 
   render() {

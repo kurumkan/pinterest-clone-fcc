@@ -23,9 +23,10 @@ const pinReducer = (state = initialState, action) => {
 
     case GET_PINS_SUCCESS: {
       const pins = action.payload;
+      console.log(pins)
       return {
         ...state,
-        pins,
+        pins: [...state.pins, ...pins],
         gettingPins: false
       };
     }
