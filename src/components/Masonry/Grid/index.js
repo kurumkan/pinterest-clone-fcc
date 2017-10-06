@@ -97,15 +97,23 @@ class Grid extends Component {
 }
 
 Grid.propTypes = {
-  gutter: PropTypes.number,
+  columnWidth: PropTypes.number,
   fitWidth: PropTypes.bool,
-  columnWidth: PropTypes.number
+  gutter: PropTypes.number,
+  itemsLeft: PropTypes.number,
+  limit: PropTypes.number,
+  scrollThreshold: PropTypes.number,
+
+  loadMore: PropTypes.func.isRequired
 };
 
 Grid.defaultProps = {
+  columnWidth: 100,
   gutter: 5,
   fitWidth: false,
-  columnWidth: 100
+  itemsLeft: 0,
+  limit: 1,
+  scrollThreshold: 300
 };
 
 export default Grid;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 import Tooltip from 'components/Tooltip';
 import GridItem from 'components/Masonry/GridItem';
@@ -33,14 +34,14 @@ class ImageGridItem extends Component {
                 Share this Pin
               </span>
               <div className="button-group">
-                <span className="fa fa-facebook social-btn " />
-                <span className="fa fa-twitter social-btn " />
-                <span className="fa fa-link social-btn " />
+                <FontAwesome name="facebook" className="social-btn" />
+                <FontAwesome name="twitter" className="social-btn" />
+                <FontAwesome name="link" className="social-btn" />
               </div>
             </Tooltip>
           </span>
           <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true" />
+            <FontAwesome name="thumb-tack" className="icon" />
             Save
           </span>
         <p className="img-description">
@@ -51,5 +52,23 @@ class ImageGridItem extends Component {
     );
   }
 }
+
+ImageGridItem.propTypes = {
+  author: PropTypes.string,
+  description: PropTypes.string,
+  id: PropTypes.string,
+  img: PropTypes.string,
+  shouldShowPopup: PropTypes.bool,
+
+  showPopup: PropTypes.func.isRequired
+};
+
+ImageGridItem.defaultProps = {
+  author: '',
+  description: '',
+  id: '',
+  img: '',
+  shouldShowPopup: false
+};
 
 export default ImageGridItem;

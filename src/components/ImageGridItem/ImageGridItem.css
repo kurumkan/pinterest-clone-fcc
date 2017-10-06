@@ -56,6 +56,10 @@
     background-color: #73000D;
 }
 
+.grid-item .save-btn .icon {
+    margin-right: 10px;
+}
+
 .tooltip .title {
     font-size: 18px;
 }
