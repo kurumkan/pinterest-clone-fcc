@@ -5,6 +5,12 @@ const app = express();
 app.get('/api/pins', (req, res) => {
   const pins = [
     {
+      id: '0',
+      img: 'src/images/350.jpeg',
+      author: 'Ethan Hein',
+      description: 'Lorem Ipsum'
+    },
+    {
       id: '1',
       img: 'src/images/300.jpeg',
       author: 'Ethan Hein',
@@ -114,12 +120,21 @@ app.get('/api/pins', (req, res) => {
     }
   ];
 
-  const limit = req.query.limit || 10;
-  const offset = req.query.offset || 0;
+  const limit = +req.query.limit || 10;
+  const offset = +req.query.offset || 0;
 
-  res.json({
-    pins: pins.slice(offset, offset + limit)
-  });
+  if(offset >= pins.length) {
+    res.json({
+      pins: [],
+      pinsLeft: 0
+    });
+  } else {
+    const pinsLeft = pins.length  - offset - limit;
+    res.json({
+      pins: pins.slice(offset, offset + limit),
+      pinsLeft: pinsLeft < 0 ? 0 : pinsLeft
+    });
+  }
 });
 
 if(process.env.NODE_ENV === 'production') {

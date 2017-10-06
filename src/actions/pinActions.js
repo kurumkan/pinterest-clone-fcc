@@ -16,7 +16,7 @@ export const getPins = (offset = 0, limit = 10) => (dispatch, getState) => {
     .then((res) => {
       dispatch({
         type: GET_PINS_SUCCESS,
-        payload: res.data.pins
+        payload: res.data
       });
     })
     .catch(e => {

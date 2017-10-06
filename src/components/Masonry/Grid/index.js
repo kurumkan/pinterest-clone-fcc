@@ -5,13 +5,18 @@ import './Grid.css';
 class Grid extends Component {
   constructor(props) {
     super(props);
-    this.shouldCall = false;
+    this.state = {
+      offset: 0
+    };
+    this.shouldCall = true;
+
+    this.loadMore = this.loadMore.bind(this);
     this.renderGrid = this.renderGrid.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    setTimeout(this.renderGrid, 100);
+    this.loadMore();
     window.addEventListener("resize", this.renderGrid);
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -60,20 +65,26 @@ class Grid extends Component {
   handleScroll(e) {
     const windowHeight = window.innerHeight;
 
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = document.documentElement.scrollTop;
 
-    const scrolled = scrollTop % windowHeight;
-
-    if(scrolled > windowHeight - this.props.scrollThreshold) {
-      if(this.shouldCall) {
-        console.log('should load')
-        setTimeout(this.renderGrid, 100);
-        this.shouldCall = false;
-        this.props.loadMore();
-      }
+    const scrolled = scrollTop % windowHeight + document.documentElement.scrollHeight;
+    if(scrolled > windowHeight - this.props.scrollThreshold &&
+       this.shouldCall &&
+       this.props.itemsLeft
+    ) {
+      this.loadMore();
     } else {
       this.shouldCall = true;
     }
+  }
+
+  loadMore() {
+    this.props.loadMore(this.state.offset, this.props.limit);
+    this.setState({
+      offset: this.state.offset + this.props.limit
+    });
+    setTimeout(this.renderGrid, 100);
+    this.shouldCall = false;
   }
 
   render() {
