@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Grid from 'components/Masonry/Grid';
+import { Grid } from 'react-masonry-infinite-scroll';
 
 import ImageGridItem from 'components/ImageGridItem';
 import './ImageGrid.css';
@@ -41,5 +41,20 @@ class ImageGrid extends Component {
     );
   }
 }
+
+ImageGrid.propTypes = {
+  focusedPin: PropTypes.string,
+  pins: PropTypes.array,
+  pinsLeft: PropTypes.number,
+
+  getPins: PropTypes.func.isRequired,
+  showPinPopup: PropTypes.func.isRequired
+};
+
+ImageGrid.defaultProps = {
+  focusedPin: '',
+  pins: [],
+  pinsLeft: 0
+};
 
 export default ImageGrid;

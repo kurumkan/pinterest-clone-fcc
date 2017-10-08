@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
 import Tooltip from 'components/Tooltip';
-import GridItem from 'components/Masonry/GridItem';
+
+import { GridItem } from 'react-masonry-infinite-scroll';
 
 import './ImageGridItem.css';
 

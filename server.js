@@ -12,7 +12,7 @@ app.get('/api/pins', (req, res) => {
     },
     {
       id: '1',
-      img: 'src/images/300.jpeg',
+      img: 'src/images/200x400.jpeg',
       author: 'Ethan Hein',
       description: 'Lorem Ipsum'
     },
@@ -36,7 +36,7 @@ app.get('/api/pins', (req, res) => {
     },
     {
       id: '5',
-      img: 'src/images/300.jpeg',
+      img: 'src/images/900x900.jpeg',
       author: 'Ethan Hein',
       description: 'Lorem Ipsum'
     },
