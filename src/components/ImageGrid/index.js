@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Grid } from 'react-masonry-infinite-scroll';
 
 import ImageGridItem from 'components/ImageGridItem';
 import './ImageGrid.css';
@@ -7,12 +8,7 @@ import './ImageGrid.css';
 class ImageGrid extends Component {
   constructor(props) {
     super(props);
-
     this.renderGrid = this.renderGrid.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.getPins();
   }
 
   renderGrid() {
@@ -31,12 +27,34 @@ class ImageGrid extends Component {
 
   render() {
     return (
-      <div className="grid">
-        <div className="grid-sizer"></div>
+      <Grid
+        columnWidth={260}
+        fitWidth={true}
+        gutter={5}
+        loadMore={this.props.getPins}
+        limit={6}
+        scrollThreshold={400}
+        itemsLeft={this.props.pinsLeft}
+      >
         { this.renderGrid() }
-      </div>
+      </Grid>
     );
   }
 }
+
+ImageGrid.propTypes = {
+  focusedPin: PropTypes.string,
+  pins: PropTypes.array,
+  pinsLeft: PropTypes.number,
+
+  getPins: PropTypes.func.isRequired,
+  showPinPopup: PropTypes.func.isRequired
+};
+
+ImageGrid.defaultProps = {
+  focusedPin: '',
+  pins: [],
+  pinsLeft: 0
+};
 
 export default ImageGrid;

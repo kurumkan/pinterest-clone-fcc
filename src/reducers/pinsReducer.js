@@ -9,7 +9,8 @@ import {
 const initialState = {
   pins: [],
   focusedPin: '',
-  gettingPins: false
+  gettingPins: false,
+  pinsLeft: 0
 };
 
 const pinReducer = (state = initialState, action) => {
@@ -22,10 +23,11 @@ const pinReducer = (state = initialState, action) => {
     }
 
     case GET_PINS_SUCCESS: {
-      const pins = action.payload;
+      const { pins, pinsLeft } = action.payload;
       return {
         ...state,
-        pins,
+        pins: [...state.pins, ...pins],
+        pinsLeft,
         gettingPins: false
       };
     }

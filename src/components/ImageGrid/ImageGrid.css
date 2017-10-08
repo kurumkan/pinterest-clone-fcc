@@ -1,9 +1,0 @@
-.grid {
-    margin: 0 auto;
-}
-
-.grid-sizer, .grid-item {
-    width: 260px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}

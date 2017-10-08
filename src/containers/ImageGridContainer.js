@@ -3,8 +3,9 @@ import ImageGrid from 'components/ImageGrid';
 import { getPins, showPinPopup } from 'actions/pinActions';
 
 const select = state => ({
+  focusedPin: state.pins.focusedPin,
   pins: state.pins.pins,
-  focusedPin: state.pins.focusedPin
+  pinsLeft: state.pins.pinsLeft
 });
 
 const actions = {

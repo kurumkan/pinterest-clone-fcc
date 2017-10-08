@@ -9,29 +9,15 @@ import {
 
 import api from 'api';
 
-export const getPins = () => (dispatch, getState) => {
+export const getPins = (offset = 0, limit = 10) => (dispatch, getState) => {
   dispatch({ type: GET_PINS_REQUEST });
 
-  api.getPins()
+  api.getPins(offset, limit)
     .then((res) => {
       dispatch({
         type: GET_PINS_SUCCESS,
-        payload: res.data.pins
+        payload: res.data
       });
-
-      // These piece of code should be rewritten
-      // with custom masonry layout solution
-      setTimeout(() => {
-        const elem = document.querySelector('.grid');
-        const msnry = new Masonry( elem, {
-          // options
-          horizontalOrder: true, // keep horizontal order
-          itemSelector: '.grid-item',
-          columnWidth: '.grid-sizer', // this element is used to define grid element size
-          gutter: 5, // horizontal space between grid elements
-          fitWidth: true // centering the grid container
-        });
-      }, 50);
     })
     .catch(e => {
       console.log(e)

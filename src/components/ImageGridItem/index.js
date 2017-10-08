@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 import Tooltip from 'components/Tooltip';
+
+import { GridItem } from 'react-masonry-infinite-scroll';
 
 import './ImageGridItem.css';
 
@@ -19,7 +22,7 @@ class ImageGridItem extends Component {
   render() {
     const { description, author, img, shouldShowPopup } = this.props;
     return (
-      <div className={`grid-item ${shouldShowPopup && 'focused'}`}>
+      <GridItem className={`${shouldShowPopup && 'focused'}`}>
         <img src={ img } />
           <span className="btn share-btn fa fa-share-alt" onClick={this.handleShareBtnClick} ref={(el) => { this.shareBtn = el; }}>
             <Tooltip
@@ -32,23 +35,41 @@ class ImageGridItem extends Component {
                 Share this Pin
               </span>
               <div className="button-group">
-                <span className="fa fa-facebook social-btn " />
-                <span className="fa fa-twitter social-btn " />
-                <span className="fa fa-link social-btn " />
+                <FontAwesome name="facebook" className="social-btn" />
+                <FontAwesome name="twitter" className="social-btn" />
+                <FontAwesome name="link" className="social-btn" />
               </div>
             </Tooltip>
           </span>
           <span className="btn save-btn">
-            <i className="fa fa-thumb-tack" aria-hidden="true" />
+            <FontAwesome name="thumb-tack" className="icon" />
             Save
           </span>
         <p className="img-description">
-          { description }
+          { description } {this.props.id}
           <a className="author" href="#">By { author }</a>
         </p>
-      </div>
+      </GridItem>
     );
   }
 }
+
+ImageGridItem.propTypes = {
+  author: PropTypes.string,
+  description: PropTypes.string,
+  id: PropTypes.string,
+  img: PropTypes.string,
+  shouldShowPopup: PropTypes.bool,
+
+  showPopup: PropTypes.func.isRequired
+};
+
+ImageGridItem.defaultProps = {
+  author: '',
+  description: '',
+  id: '',
+  img: '',
+  shouldShowPopup: false
+};
 
 export default ImageGridItem;
