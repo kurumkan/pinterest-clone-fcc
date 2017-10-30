@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
   'axios',
-  
   'react',
   'react-dom',
   'react-fontawesome',
@@ -102,7 +101,7 @@ const webpackConfig = {
     host: 'localhost',
     port: 3000,
     proxy: {
-      '/api': {
+      '/api': { // all the api calls will go to localhost:5000
         target: 'http://localhost:5000',
         secure: false
       }
