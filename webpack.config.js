@@ -4,7 +4,18 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
-  'react'
+  'axios',
+  
+  'react',
+  'react-dom',
+  'react-fontawesome',
+  'react-masonry-infinite-scroll',
+  'react-redux',
+  'react-router',
+  'react-router-redux',
+  'react-router-scroll',
+  'redux',
+  'redux-thunk'
 ];
 
 const isDev = process.env.NODE_ENV !== 'production';
