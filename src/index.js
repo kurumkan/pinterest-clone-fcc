@@ -6,7 +6,7 @@ import { applyRouterMiddleware, browserHistory, Router } from 'react-router';
 import { useScroll } from 'react-router-scroll';
 
 import createRoutes from 'routes';
-import configureStore from 'srore';
+import configureStore from 'store';
 
 const store = configureStore(browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);

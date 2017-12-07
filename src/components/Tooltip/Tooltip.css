@@ -80,3 +80,16 @@ span.tooltip.arrow-bottom {
 span.tooltip.arrow-bottom:after {
     bottom: calc(var(--target-height) / 2 - var(--arrow-height));
 }
+
+
+.tooltip .title {
+    font-size: 18px;
+}
+
+.tooltip .button-group {
+    margin-top: 10px;
+}
+
+.tooltip.open {
+    visibility: visible;
+}

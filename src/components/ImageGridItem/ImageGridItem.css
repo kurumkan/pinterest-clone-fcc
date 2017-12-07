@@ -1,3 +1,7 @@
+.grid-item {
+    border-radius: 7px;
+}
+
 .grid-item:hover {
     background-color: #eee;
 }
@@ -58,14 +62,6 @@
 
 .grid-item .save-btn .icon {
     margin-right: 10px;
-}
-
-.tooltip .title {
-    font-size: 18px;
-}
-
-.tooltip .button-group {
-    margin-top: 10px;
 }
 
 .social-btn{
