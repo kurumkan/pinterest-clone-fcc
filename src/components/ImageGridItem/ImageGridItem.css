@@ -45,6 +45,10 @@
     padding: 13px;
 }
 
+.grid-item .btn.visible {
+    visibility: visible;
+}
+
 .grid-item .share-btn:hover {
     background-color: #949292;
 }

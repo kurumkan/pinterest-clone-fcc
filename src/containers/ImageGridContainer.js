@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ImageGrid from 'components/ImageGrid';
-import { getPins, showPinPopup } from 'actions/pinActions';
+import { getPins, showPinPopup, hidePinPopup } from 'actions/pinActions';
 
 const select = state => ({
   focusedPin: state.pins.focusedPin,
@@ -10,6 +10,7 @@ const select = state => ({
 
 const actions = {
   getPins,
+  hidePinPopup,
   showPinPopup
 };
 

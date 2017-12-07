@@ -12,6 +12,15 @@ class ImageGridItem extends Component {
   constructor(props) {
     super(props);
     this.handleShareBtnClick = this.handleShareBtnClick.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
   handleShareBtnClick(e) {
@@ -19,12 +28,22 @@ class ImageGridItem extends Component {
     this.props.showPopup(id);
   }
 
+  handleClickOutside(e) {
+    if (this.shareBtn && !this.shareBtn.contains(e.target) &&  this.props.shouldShowPopup) {
+      this.props.hidePinPopup();
+    }
+  }
+
   render() {
     const { description, author, img, shouldShowPopup } = this.props;
     return (
       <GridItem className={`${shouldShowPopup && 'focused'}`}>
-        <img src={ img } />
-          <span className="btn share-btn fa fa-share-alt" onClick={this.handleShareBtnClick} ref={(el) => { this.shareBtn = el; }}>
+        <img src={ img }/>
+          <span
+            className={`btn share-btn fa fa-share-alt ${shouldShowPopup ? 'visible' : ''}`}
+            onClick={this.handleShareBtnClick}
+            ref={el => this.shareBtn = el }
+          >
             <Tooltip
               targetElement={this.shareBtn}
               isOpen={shouldShowPopup}
@@ -61,6 +80,7 @@ ImageGridItem.propTypes = {
   img: PropTypes.string,
   shouldShowPopup: PropTypes.bool,
 
+  hidePinPopup: PropTypes.func.isRequired,
   showPopup: PropTypes.func.isRequired
 };
 

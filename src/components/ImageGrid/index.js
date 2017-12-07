@@ -21,6 +21,7 @@ class ImageGrid extends Component {
         description={pin.description}
         showPopup={this.props.showPinPopup}
         shouldShowPopup={this.props.focusedPin === pin.id}
+        hidePinPopup={this.props.hidePinPopup}
       />
     ));
   }
@@ -48,6 +49,7 @@ ImageGrid.propTypes = {
   pinsLeft: PropTypes.number,
 
   getPins: PropTypes.func.isRequired,
+  hidePinPopup: PropTypes.func.isRequired,
   showPinPopup: PropTypes.func.isRequired
 };
 
