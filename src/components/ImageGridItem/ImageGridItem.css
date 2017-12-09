@@ -1,5 +1,6 @@
 .grid-item {
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .grid-item:hover {
@@ -91,4 +92,15 @@
 .social-btn.fa-link {
     background-color: #efefef;
     color: #ababab;
+}
+
+.grid-item .detailed-pin {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-item .detailed-pin img{
+    width: auto;
+    transform: translate(0, 0);
 }
