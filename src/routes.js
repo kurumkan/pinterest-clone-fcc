@@ -16,7 +16,7 @@ const createRoutes = (store) => {
       childRoutes: [
         {
           path: 'pins',
-          component: ImageGridContainer
+          component: ImageGridContainer,
         },
         {
           path: 'profile',
