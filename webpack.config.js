@@ -26,6 +26,7 @@ const webpackConfig = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
+    publicPath: '/', // assets base
     filename: `[name]${isDev ? '' : '[chunkhash]'}.js` // chunkhash - a unique string generated based on the file content
     // chunk hash should not be used for development - can cause memory leak
   },

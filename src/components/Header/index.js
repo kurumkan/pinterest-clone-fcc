@@ -94,6 +94,7 @@ class Header extends Component {
             <FontAwesome name="user" className="icon rounded" />
             <span className="username">ARTURARTUR</span>
           </Link>
+          <Link to="/pins/sub">sub</Link>
         </div>
       </nav>
     );
