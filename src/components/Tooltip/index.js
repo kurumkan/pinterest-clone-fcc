@@ -21,10 +21,6 @@ class Tooltip extends Component {
   }
 
   getClasses() {
-    if(!this.props.isOpen) {
-      return 'tooltip';
-    }
-
     const classes = [];
     classes.push('tooltip');
     classes.push('open');
@@ -68,6 +64,10 @@ class Tooltip extends Component {
   }
 
   render() {
+    if(!this.props.isOpen) {
+      return null;
+    }
+
     return (
       <span className={this.getClasses()}>
         {this.props.children}

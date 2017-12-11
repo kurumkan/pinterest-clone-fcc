@@ -26,6 +26,7 @@ class ImageGridItem extends Component {
 
   handleShareBtnClick(e) {
     const { showPopup, id } = this.props;
+    this.props.hidePinPopup();
     this.props.showPopup(id);
   }
 
