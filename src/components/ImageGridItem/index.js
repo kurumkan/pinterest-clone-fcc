@@ -44,7 +44,7 @@ class ImageGridItem extends Component {
     const { description, author, img, shouldShowPopup } = this.props;
     return (
       <GridItem className={`${shouldShowPopup && 'focused'}`}>
-        <img src={ img }/>
+        <img src={ img } onLoad={ this.context.imageLoaded } />
           <span
             className={`btn share-btn fa fa-share-alt ${shouldShowPopup ? 'visible' : ''}`}
             onClick={this.handleShareBtnClick}
@@ -96,6 +96,10 @@ ImageGridItem.defaultProps = {
   id: '',
   img: '',
   shouldShowPopup: false
+};
+
+ImageGridItem.contextTypes = {
+  imageLoaded: PropTypes.func
 };
 
 export default ImageGridItem;
