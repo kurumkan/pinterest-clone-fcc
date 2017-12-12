@@ -2,13 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from 'react-masonry-infinite-scroll';
 
+import Loader from 'components/Loader';
 import ImageGridItem from 'components/ImageGridItem';
 import './ImageGrid.css';
 
 class ImageGrid extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      gridIsReady: false
+    };
     this.renderGrid = this.renderGrid.bind(this);
+    this.notifyReadyState = this.notifyReadyState.bind(this);
+  }
+
+  notifyReadyState() {
+    this.setState({
+      gridIsReady: true
+    });
   }
 
   renderGrid() {
@@ -27,6 +38,7 @@ class ImageGrid extends Component {
   }
 
   render() {
+
     return (
       <Grid
         columnWidth={260}
@@ -36,7 +48,9 @@ class ImageGrid extends Component {
         limit={6}
         scrollThreshold={400}
         itemsLeft={this.props.pinsLeft}
+        notifyReadyState={this.notifyReadyState}
       >
+        {!this.state.gridIsReady && <Loader />}
         { this.renderGrid() }
       </Grid>
     );
