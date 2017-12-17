@@ -86,7 +86,7 @@ class Header extends Component {
         </form>
         <div className="home-btn-wrapper">
           <Link to="/" className="btn home-btn">
-            Home
+            <FontAwesome name="plus" className="right icon" />
           </Link>
         </div>
         <div className="profile-btn-wrapper">
